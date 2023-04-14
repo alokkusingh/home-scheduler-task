@@ -1,0 +1,25 @@
+FROM alokkusingh/graalvm-ce:22.3.0-java17-arm64 AS builder
+ARG JAR_FILE
+RUN gu install native-image
+COPY src /home/app/src
+COPY pom.xml /home/app
+COPY native /home/app/native
+COPY settings.xml $M2_HOME/conf/settings.xml
+WORKDIR /home/app
+RUN ls /home/app
+RUN cat $M2_HOME/conf/settings.xml
+RUN echo $M2_HOME
+RUN mvn clean package -Pnative
+
+FROM arm64v8/ubuntu:focal
+MAINTAINER Alok Singh (alok.ku.singh@gmail.com)
+RUN groupadd -g 600 singh && useradd -u 601 -g 600 alok
+RUN mkdir -p /opt/logs
+RUN mkdir -p /home/alok
+COPY --from=builder /home/app/target/home-scheduler-task /opt/home-scheduler-task
+RUN chown -R alok /opt
+RUN chown -R alok /home/alok
+USER alok
+EXPOSE 8082
+WORKDIR /opt
+ENTRYPOINT ["/opt/home-scheduler-task"]

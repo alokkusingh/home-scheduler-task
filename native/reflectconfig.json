@@ -1,0 +1,42 @@
+[
+  {
+    "name" : "java.lang.Class",
+    "queryAllDeclaredConstructors" : true,
+    "queryAllPublicConstructors" : true,
+    "queryAllDeclaredMethods" : true,
+    "queryAllPublicMethods" : true,
+    "allDeclaredClasses" : true,
+    "allPublicClasses" : true
+  },
+  {
+    "name" : "com.google.api.client.json.GenericJson",
+    "methods" : [
+      { "name" : "<init>", "parameterTypes" : [] },
+      { "name" : "clone" }
+    ]
+  },
+  {
+    "name" : "org.hibernate.dialect.MySQL8Dialect",
+    "allDeclaredFields": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name" : "com.fasterxml.jackson.databind.ser.std.SqlDateSerializer",
+    "allDeclaredFields": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name" : "com.alok.home.model.UserInfo",
+    "allDeclaredFields": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name" : "com.alok.home.model.UserRole",
+    "allDeclaredFields": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  }
+]
